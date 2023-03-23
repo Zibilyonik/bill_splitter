@@ -1,3 +1,4 @@
+import random
 print("Enter the number of friends joining (including you):")
 try:
     number_of_friends = int(input())
@@ -13,6 +14,8 @@ else:
             friends[input()] = 0
         print("Enter the total bill value:")
         bill = float(input())
-        for i in friends:
-            friends[i] = round(bill / number_of_friends, 2)
-        print(friends)
+        print("Do you want to use the \"Who is lucky?\" feature? Write Yes/No:")
+        if input() == "Yes":
+            print(random.choice(list(friends.keys())), "is the lucky one!")
+        else:
+            print("No one is going to be lucky")          
