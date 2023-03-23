@@ -16,6 +16,13 @@ else:
         bill = float(input())
         print("Do you want to use the \"Who is lucky?\" feature? Write Yes/No:")
         if input() == "Yes":
-            print(random.choice(list(friends.keys())), "is the lucky one!")
+            lucky_one = random.choice(list(friends.keys()))
+            print(lucky_one, "is the lucky one!")
+            for friend in friends:
+                friends[friend] = round(bill / (number_of_friends - 1), 2)
+            friends[lucky_one] = 0
         else:
-            print("No one is going to be lucky")          
+            print("No one is going to be lucky")      
+            for friend in friends:
+                friends[friend] = round(bill / number_of_friends, 2)
+        print(friends)
